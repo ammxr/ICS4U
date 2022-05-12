@@ -5,6 +5,7 @@ import copy
 from insertionSort import insertionSort
 from binarySearch import binarySearch
 from linearSearch import linearSearch
+import dataGen as dataGen 
 
 def Average(arr):
     return sum(arr) / len(arr)
@@ -25,7 +26,7 @@ def getRandomList(listSize):
 # Sorting
 def sortArr(arr, type):
   if type.lower()=="default":
-    return arr.sort()
+    return arr.sort(key=lambda var: var.x)
   elif type.lower()=="insertion":
     return insertionSort(arr)
   else:
@@ -40,20 +41,19 @@ def search(arr, type, value):
     return("Invalid Selection")
     
 # Main Program
-    
+
 #   Data Array Generation
 dataSize=20
-randomList = getRandomList(dataSize)
-print(str(randomList))
-
+randomList = dataGen.generateData(20)
+print("CURRENT ARRAY:\n\n" + str(randomList))
 #   Trials and Timings
-type=input("What sort would you like to run? ")
+type=input("\nPLEASE CHOOSE A SORTING METHOD (Insertion/Default):  ")
 numTrials= 10
 timesList=[]
 
+print("\nINITIATING TRIALS:")
 for i in range(numTrials):
-  print("Loop #" +str(i+1)+" out of " + str(numTrials))
-  randomList = getRandomList(dataSize)
+  print("Loop " +str(i+1)+"/" + str(numTrials))
   startTime = time.time()
   sortArr(randomList, type)
   timer = getTime(startTime)
