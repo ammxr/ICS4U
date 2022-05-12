@@ -5,11 +5,14 @@ def binarySearch(arr, value):
   while low != high:
     mid = int((high + low) // 2)
     if (value == arr[mid]):
-      return mid
+      print("Value found at index " + str(mid))
+      break
     elif (value<mid):
       high = mid
       mid = (high+low)/2
+    elif value not in arr:
+      print("Value does not exist within array")
+      break
     else:
       low = mid
       mid = (high+low)/2
-  return -1
