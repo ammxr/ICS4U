@@ -1,9 +1,5 @@
-def insertionSort(arr):
-  i = 0 
+def linearSearch(arr,value):
   for i in range(len(arr)):
-    temp = arr[i]
-    j = i
-    while(j>0  and temp < arr[j-1]):
-          arr[j] = arr[j-1]
-          j-= 1
-    arr[j] = temp
+    if arr[i].x== value:
+      print("Value found at index " + str(i))
+      break
