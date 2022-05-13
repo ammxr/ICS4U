@@ -1,5 +1,5 @@
 def linearSearch(arr,value):
   for i in range(len(arr)):
     if arr[i].x== value:
-      print("Value found at index " + str(i))
+      print("VALUE FOUND AT INDEX " + str(i) + " \n  COORDINATE: " + str(arr[i]))
       break

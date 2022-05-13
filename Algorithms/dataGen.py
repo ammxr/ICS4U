@@ -18,4 +18,4 @@ def generateData(size):
     y = round(random.random()*size)
     newCoord = Coord(x, y)
     newList.append(newCoord)
-  return newList
+  return newList 
