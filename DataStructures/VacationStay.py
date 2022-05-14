@@ -31,6 +31,7 @@ class VacationStay:
     self.number = number
     self.rooms = rooms
     self.bathrooms = bathrooms
+    self.area = 100*rooms
   def getArea(self):
     '''
     Returns the area of the booked unit
@@ -38,7 +39,7 @@ class VacationStay:
     -------
     Area of the booked unit
     '''
-    return self.rooms*100
+    return self.area
   def getPeopleRecommended(self):
     '''
   	Returns the recomended maximum per booked unit

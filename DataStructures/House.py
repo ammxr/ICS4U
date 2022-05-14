@@ -46,7 +46,6 @@ class House(VacationStay):
     super().__init__(number, rooms, bathrooms)
     self.stories = stories
     self.type = type
-    self.area = area
   def getPricePerNight(self):
     '''
   	Returns the price per night (rent)

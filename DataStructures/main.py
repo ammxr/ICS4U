@@ -11,8 +11,6 @@
 import random
 import json
 from datetime import date
-
-from VacationStay import VacationStay
 from House import House
 from Condo import Condo
 
@@ -57,12 +55,8 @@ if houseOrCondo.lower() == "condo" or houseOrCondo.lower() == "condominium":
   bathroomsNeeded= input("\nFinally, How many bathrooms would you require? (1-4)")
   bathrooms=int(bathroomsNeeded)
   
-  # Parent Class
-  stay= VacationStay(addressNumber, rooms, bathrooms)
-  area=stay.getArea()
-  
   # Inheritance to Child Class 
-  stayChosen= Condo(addressNumber, floorNumber, stories, rooms, bathrooms, area)
+  stayChosen= Condo(addressNumber, floorNumber, stories, rooms, bathrooms, area=None)
   cost= stayChosen.getPricePerNight()
   print("It will cost $" +str(cost) +" per night for you're booking")
   print(dashBreak)
@@ -78,7 +72,7 @@ if houseOrCondo.lower() == "condo" or houseOrCondo.lower() == "condominium":
   "Rooms": rooms,
   "Bathrooms": bathrooms,
   "Stories": stories,
-  "Area (square feet)": area
+  "Area (square feet)": stayChosen.getArea()
 }
   with open ("vacationInformation.json", "w") as f:
     json.dump (jsonWritesCondo, f, indent=4)
@@ -98,12 +92,8 @@ elif houseOrCondo.lower() == "house":
   bathrooms=int(bathroomsNeeded)
 
   print(dashBreak)
-  # Parent Class
-  stay= VacationStay(addressNumber, rooms, bathrooms)
-  area=stay.getArea()
-  
   # Inheritance to Child Class   
-  stayChosen= House(addressNumber, type, stories, rooms, bathrooms, area)
+  stayChosen= House(addressNumber, type, stories, rooms, bathrooms, area= None)
   cost= stayChosen.getPricePerNight()
   print("It will cost $" +str(cost) +" per night for you're booking")
 
@@ -116,7 +106,7 @@ elif houseOrCondo.lower() == "house":
   "Rooms": rooms,
   "Bathrooms": bathrooms,
   "Stories": stories,
-  "Area (square feet)": area
+  "Area (square feet)": stayChosen.getArea()
   }
   with open ("vacationInformation.json", "w") as f:
     json.dump (jsonWritesHouse, f, indent=4)
