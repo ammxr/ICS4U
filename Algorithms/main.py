@@ -1,5 +1,4 @@
-import timeit 
-import random
+import timeit
 import copy
 from insertionSort import insertionSort
 from binarySearch import binarySearch
@@ -39,7 +38,7 @@ def search(arr, type, value):
 # Main Program
 
 #   Data Array Generation
-dataSize=20
+dataSize=10
 randomList = dataGen.generateData(dataSize)
 print("CURRENT ARRAY:\n\n" + str(randomList))
 
@@ -50,23 +49,24 @@ timesList=[]
 
 print("\nINITIATING TRIALS:")
 for i in range(numTrials):
-  print("Loop " +str(i+1)+"/" + str(numTrials))
+  print("Loop " + str(i+1) + ":")
   startTime = timeit.default_timer()
   sortedArray= sortArr(randomList, type)
   timer = getTime(startTime)
   timesList.append(timer)
-  print("    Took " + str(timer) + " seconds to run")
+  print("    Process took: " + str(timer) + " seconds")
 print("AVERAGE TRIAL TIME: "+str(Average(timesList))+" SECONDS \n\nSORTED LIST:")
 print(sortedArray)
 
 searchingType= input("\nPLEASE ENTER YOUR PREFFERED SEARCHING METHOD: (Linear/Binary)  ")
 
-searchValue = random.choice(randomList)
+searchValue = int(input("SEARCH FOR: "))
+#searchValue = (random.choice(randomList)).x
+
 for i in range(numTrials):
-  print("Loop " +str(i+1)+"/" + str(numTrials))
   startTime = timeit.default_timer()
-  search(sortedArray, searchingType, searchValue.x)
+  search(sortedArray, searchingType, searchValue)
   timer = getTime(startTime)
   timesList.append(timer)
-  print("    Took " + str(timer) + " seconds to run")
+  print(timer)
 print("AVERAGE TRIAL TIME: "+str(Average(timesList))+" SECONDS")
